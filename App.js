@@ -7,7 +7,8 @@ import {
   TouchableHighlight,
   TouchableNativeFeedback,
   TouchableOpacity,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Slider
 } from 'react-native'
 
 const styles = StyleSheet.create({
@@ -17,6 +18,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%'
   },
   button: {
     backgroundColor: '#FF0000',
@@ -37,14 +39,12 @@ export default class App extends React.Component {
   handlePress = ()=> {
 
   }
+  state = {
+    value: 0
+  }
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={this.handlePress}>
-          <Text style={styles.buttonText}>Test</Text>
-        </TouchableOpacity>
         <AddEntry />
       </View>
     )
