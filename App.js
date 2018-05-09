@@ -3,13 +3,12 @@ import AddEntry from './components/AddEntry'
 import {
   View,
   Text,
-  StyleSheet,
-  TouchableHighlight,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  Slider
+  StyleSheet
 } from 'react-native'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from './reducers'
+
 
 const styles = StyleSheet.create({
   container: {
@@ -18,35 +17,18 @@ const styles = StyleSheet.create({
     marginRight: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%'
   },
-  button: {
-    backgroundColor: '#FF0000',
-    padding: 10,
-    paddingLeft: 50,
-    paddingRight: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 5
-  },
-  buttonText: {
-    color: '#FFFFFF'
-  }
 })
 
 
 export default class App extends React.Component {
-  handlePress = ()=> {
-
-  }
-  state = {
-    value: 0
-  }
   render() {
     return (
-      <View style={styles.container}>
-        <AddEntry />
-      </View>
+      <Provider store={createStore(reducer)} >
+        <View style={styles.container}>
+          <AddEntry />
+        </View>
+      </Provider>
     )
   }
 }
