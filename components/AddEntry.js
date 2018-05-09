@@ -6,6 +6,7 @@ import UdaciStepper from './UdaciStepper'
 import DateHeader from './DateHeader'
 import { Ionicons } from '@expo/vector-icons'
 import TextButton from './TextButton'
+import { submitEntry, removeEntry } from '../utils/api'
 
 const initial_state = {
   run: 0,
@@ -60,7 +61,7 @@ export default class AddEntry extends Component {
 
     // Navigate to home
 
-    // Save to 'DB'
+    submitEntry({ key, entry})
 
     // Clear local notifications
   }
@@ -68,7 +69,7 @@ export default class AddEntry extends Component {
     const key = timeToString()
     // Update redux
     // Route to home
-    // Update 'db'
+    removeEntry(key)
   }
 
   render(){
